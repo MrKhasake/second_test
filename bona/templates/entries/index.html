@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Diar Diary</h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <article class="meta">
+                <div class="media-container">
+                    <a href="{% url 'add'%}">Add new antry</a>
+                    <a href="{% url 'news'%}">Top news</a>
+                </div>
+            </article>
+            {% for entry in entries %} 
+            <article class="media">
+                <div class="media-container">
+                    <div class="container">
+                        <p><strong>{{entry.date_posted}}</strong><br>{{ entry.text }}.</p>
+                    </div>
+                </div>
+            </article>
+
+            {% endfor %}
+            
+
+        </div>
+    </section>
+
+</body>
+</html>
